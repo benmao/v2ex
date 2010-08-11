@@ -28,6 +28,7 @@ register.filter(imgly)
 def mentions(value):
     ms = re.findall('(@[a-zA-Z0-9\_]+\.?)\s?', value)
     if (len(ms) > 0):
+        ms.sort(key = lambda m:len(m),reverse = True)
         for m in ms:
             m_id = re.findall('@([a-zA-Z0-9\_]+\.?)', m)
             if (len(m_id) > 0):
